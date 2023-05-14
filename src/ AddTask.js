@@ -1,11 +1,18 @@
 import {useState} from 'react'
+import { useTasksDispatch } from './TasksContext.js';
 
-const AddTask = ({onAddTask}) => {
+let nextId = 3;
+
+const AddTask = () => {
   const [text, setText] = useState('');
-
+  const dispatch = useTasksDispatch();
   const handleOnClick = () =>{
     setText('')
-    onAddTask(text)
+        dispatch({
+          type: 'added',
+          id: nextId++,
+          text: text,
+        }); 
   }
 
   return (<>

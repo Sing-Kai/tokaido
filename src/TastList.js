@@ -70,7 +70,15 @@ const Task = ({ task }) => {
       <input
         type="checkbox"
         checked={task.done}
-        onChange={onHandleChange}
+        onChange={e => {
+          dispatch({
+            type: 'changed',
+            task: {
+              ...task,
+              done: e.target.checked
+            }
+          });
+        }}
       />
       {taskContent}
       <button onClick={onHandleDeleteClick}>

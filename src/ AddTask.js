@@ -8,11 +8,11 @@ const AddTask = () => {
   const dispatch = useTasksDispatch();
   const handleOnClick = () =>{
     setText('')
-        dispatch({
-          type: 'added',
-          id: nextId++,
-          text: text,
-        }); 
+    dispatch({
+      type: 'added',
+      id: nextId++,
+      text: text,
+    }); 
   }
 
   return (<>
